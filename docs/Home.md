@@ -30,13 +30,13 @@ The maintained list of members, GitHub profiles, and their roles or principal co
 
 | Page | Purpose |
 | --- | --- |
-| [1. Project Scope](1.-Project-Scope.md) | Problem, objective, and boundary of the project |
-| [2. Requirement Analysis](2.-Requirements.md) | Requirements, constraints, and traceability |
-| [3. Use Cases](3.-Use-Cases.md) | Actors and representative user interactions |
-| [4. Architecture and Design](4.-Architecture-and-Design.md) | Main design decisions, structure, data, and behavior |
-| [5. Testing](5.-Testing.md) | Test approach, actual results, and known defects |
+| [1. Project Scope](1-Project-Scope.md) | Problem, objective, and boundary of the project |
+| [2. Requirement Analysis](2-Requirements.md) | Requirements, constraints, and traceability |
+| [3. Use Cases](3-Use-Cases.md) | Actors and representative user interactions |
+| [4. Architecture and Design](4-Architecture-and-Design.md) | Main design decisions, structure, data, and behavior |
+| [5. Testing](5-Testing.md) | Test approach, actual results, and known defects |
 | [6. Deployment, Installation, and Configuration](6-Deployment-Installation-and-Configuration.md) | Local installation, configuration, public deployment, and administration |
-| [7. Conclusion and Future Work](7.-Conclusion-and-Future-Work.md) | Conclusion and Future Work |
+| [7. Conclusion and Future Work](7-Conclusion-and-Future-Work.md) | Conclusion and Future Work |
 | [A. Overview of Group Activities](A-Overview-of-Group-Activities.md) | Report Detalis of Team Work |
 
 ## Project Milestones
