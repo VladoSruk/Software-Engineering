@@ -25,6 +25,7 @@
 
 For the complete scope, requirements, design, and test evidence, see the [docs](docs/Home.md).
 
+<a id="deployment"></a>
 ## Deployment
 
 <!-- INSTRUCTION: Required from Checkpoint 1 (week 8). Verify that the URL is the running public application and that the listed flow works. Never publish passwords or tokens.. -->
@@ -39,6 +40,7 @@ For the complete scope, requirements, design, and test evidence, see the [docs](
 
 The [deployment and running guide] describes the hosting setup actually used by this team. The team may use Render or another approved comparable platform.
 
+<a id="quick-start"></a>
 ## Quick Start / Installation
 
 <!-- Required from Demo 1 onward. Replace the placeholders with commands another teammate has run from a clean clone. Keep detailed administration in the Wiki. -->
@@ -102,6 +104,7 @@ This repository contains open educational resources and is licensed under the Cr
 
 Third-party code, datasets, images, icons, and other assets retain their own licenses and attribution requirements. [Link to any additional credits where relevant.]
 
+<a id="AI-usage"></a>
 ## AI Usage
 
 This project follows FER's [Policy on the Appropriate Use of Artificial Intelligence](https://www.fer.unizg.hr/_download/repository/Policy%20on%20the%20appropriate%20use%20of%20artificial%20intelligence%20at%20the%20faculty%20of%20electrical%20engineering%20and%20computing%5B1%5D.pdf).
