@@ -1,0 +1,10 @@
+@startuml
+actor User
+actor Admin
+
+rectangle System {
+  User -> (Browse Content)
+  User -> (Authenticate)
+  Admin -> (Manage Users)
+}
+@enduml
