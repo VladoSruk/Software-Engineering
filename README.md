@@ -23,8 +23,9 @@
 - [A second representative feature]
 - [Optional further feature; do not copy the full requirements list]
 
-For the complete scope, requirements, design, and test evidence, see the [project Wiki](../../wiki).
+For the complete scope, requirements, design, and test evidence, see the [docs](docs/Home.md).
 
+<a id="deployment"></a>
 ## Deployment
 
 <!-- INSTRUCTION: Required from Checkpoint 1 (week 8). Verify that the URL is the running public application and that the listed flow works. Never publish passwords or tokens.. -->
@@ -39,6 +40,7 @@ For the complete scope, requirements, design, and test evidence, see the [projec
 
 The [deployment and running guide] describes the hosting setup actually used by this team. The team may use Render or another approved comparable platform.
 
+<a id="quick-start"></a>
 ## Quick Start / Installation
 
 <!-- Required from Demo 1 onward. Replace the placeholders with commands another teammate has run from a clean clone. Keep detailed administration in the Wiki. -->
@@ -94,7 +96,7 @@ Roles may change during the project. The repository and the agreed task tracker 
 
 [In two or three sentences, describe how someone proposes a task or reports a defect, how a code change is reviewed, and where to find the current work tracker. If the team maintains `CONTRIBUTING.md`, link to it here instead of duplicating its rules. Do not create that file merely to fill this section.]
 
-## License  [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
+## License  [![CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 **Project license or reuse status:** [Name the license and link to the project's `LICENSE` file, or explicitly state that no public reuse license has been granted. Confirm the intended scope with the team; do not copy the documentation template's license statement as the license of your application.]
 
@@ -102,6 +104,7 @@ This repository contains open educational resources and is licensed under the Cr
 
 Third-party code, datasets, images, icons, and other assets retain their own licenses and attribution requirements. [Link to any additional credits where relevant.]
 
+<a id="AI-usage"></a>
 ## AI Usage
 
 This project follows FER's [Policy on the Appropriate Use of Artificial Intelligence](https://www.fer.unizg.hr/_download/repository/Policy%20on%20the%20appropriate%20use%20of%20artificial%20intelligence%20at%20the%20faculty%20of%20electrical%20engineering%20and%20computing%5B1%5D.pdf).
