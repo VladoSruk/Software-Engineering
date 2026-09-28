@@ -2,7 +2,7 @@
 
 [In one sentence, say what the application lets its users do.]
 
-**Course project:** This application was developed by a student team as part of the [Software Engineering (Programsko inženjerstvo)](https://www.fer.unizg.hr/predmet/proinz) course at the Faculty of Electrical Engineering and Computing (FER), University of Zagreb.
+**Course project:** This application was developed by a student team as part of the [Software Engineering](https://www.fer.unizg.hr/predmet/proinz) course at the Faculty of Electrical Engineering and Computing (FER), University of Zagreb.
 > The project name in the title aims to describe the purpose of the project and help generate initial interest by presenting the core goal of the project. It entirely depends on you!
 > 
 > Of course, no template is ideal for all projects because the needs and goals are different. Don’t hesitate to emphasize your goal on this project’s introductory page; we’ll support it, whether you focus more on technology or marketing.
@@ -73,7 +73,7 @@ List the few technologies and external services that define how your application
 
 | Technology or tool | Role in this project | Reason for use or important constraint |
 | --- | --- | --- |
-| React | Renders the report form and incident map in the browser. | The map and submitted reports can update without reloading the entire page. |
+| React | Renders the report form and disaster map in the browser. | The map and submitted reports can update without reloading the entire page. |
 | PostgreSQL | Stores reports, locations, and their relationships. | Report records must remain connected to their authors and locations; schema changes require migrations. |
 | Map tile service | Provides the map displayed in the browser. | The map depends on an external service; report submission should still have a defined behavior if map tiles are unavailable. |
 

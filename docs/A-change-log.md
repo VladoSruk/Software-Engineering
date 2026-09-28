@@ -1,1 +1,0 @@
-# A. Documentation Change Log
