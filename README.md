@@ -23,7 +23,7 @@
 - [A second representative feature]
 - [Optional further feature; do not copy the full requirements list]
 
-For the complete scope, requirements, design, and test evidence, see the [project Wiki](../../wiki).
+For the complete scope, requirements, design, and test evidence, see the [docs](docs/Home.md).
 
 ## Deployment
 
@@ -94,7 +94,7 @@ Roles may change during the project. The repository and the agreed task tracker 
 
 [In two or three sentences, describe how someone proposes a task or reports a defect, how a code change is reviewed, and where to find the current work tracker. If the team maintains `CONTRIBUTING.md`, link to it here instead of duplicating its rules. Do not create that file merely to fill this section.]
 
-## License  [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
+## License  [![CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 **Project license or reuse status:** [Name the license and link to the project's `LICENSE` file, or explicitly state that no public reuse license has been granted. Confirm the intended scope with the team; do not copy the documentation template's license statement as the license of your application.]
 
