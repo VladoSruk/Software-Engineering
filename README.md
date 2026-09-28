@@ -1,109 +1,118 @@
-# Software Engineering
+# [Application name]
 
+[In one sentence, say what the application lets its users do.]
+
+**Course project:** This application was developed by a student team as part of the [Software Engineering (Programsko inženjerstvo)](https://www.fer.unizg.hr/predmet/proinz) course at the Faculty of Electrical Engineering and Computing (FER), University of Zagreb.
 > The project name in the title aims to describe the purpose of the project and help generate initial interest by presenting the core goal of the project. It entirely depends on you!
 > 
 > Of course, no template is ideal for all projects because the needs and goals are different. Don’t hesitate to emphasize your goal on this project’s introductory page; we’ll support it, whether you focus more on technology or marketing.
 > 
-> Why This Document? 
-This document serves as both a template and a resource for tracking the progress and structure of your project. It is a de facto standard for ensuring clear documentation of key aspects of your work. By providing essential information, you make it easier to follow your development process and assess the quality of your project.
+> This document serves as both a template and a resource for tracking the progress and structure of your project. It is a de facto standard for ensuring clear documentation of key aspects of your work. By providing essential information, you make it easier to follow your development process and assess the quality of your project.
 > 
-> Maintaining a well-organized document reflects good project management practices and promotes transparency, collaboration, and accountability within your team. It simplifies the understanding of your project’s scope, goals, and challenges, benefiting not only your team but also anyone who reviews your work.
+> Maintaining a well-organized document reflects good project management practices and promotes transparency, collaboration, and accountability within your team. It simplifies the understanding of your project’s scope, goals, and challenges, benefiting not only your team but also anyone who reviews your work.																																																												   
 
-## Project Description
+<!-- Replace every bracketed prompt with facts about your project. Remove these comments and unused options before submission. Do not copy a teaching example as a project result. -->
 
-This project is the result of teamwork as part of the project assignment for the [Software Engineering](https://www.fer.unizg.hr/predmet/proinz) course at the Faculty of Electrical Engineering and Computing, University of Zagreb.
+## App Description
 
-Briefly describe the goal of your project. What motivated you? What problem are you solving?
+[In two or three sentences, explain the problem, the intended users, and the main benefit of your application. List current functionality separately from anything planned; state the actual scope rather than promised features.]
 
-> Since this is a part of course assigment, also mention what new things you want/have learned.
-> 
-> A well-written description allows you to showcase your work to other developers, as well as potential employers. Not only does the first impression on the description page often distinguish a good project from a bad one, but it also represents good practice that you must master.
+**Key features**
 
-## Functional Requirements
+- [A representative feature users can try]
+- [A second representative feature]
+- [Optional further feature; do not copy the full requirements list]
 
-Highlight key features and functionalities.
+For the complete scope, requirements, design, and test evidence, see the [project Wiki](../../wiki).
 
 ## Deployment
-This section provides information on how to access and evaluate the deployed demo version of the application, allowing users to interact with the app and test its functionality in a limited scope before running it locally.
 
-For a demonstration of the application's functionality, a demo version is available at *[link to deployment]*. This version allows users to explore key features and interact with the app in a limited scope.
+<!-- INSTRUCTION: Required from Checkpoint 1 (week 8). Verify that the URL is the running public application and that the listed flow works. Never publish passwords or tokens.. -->
 
-### Accessing the Test Application
-> - **Visit the Demo Link**: Navigate to the provided URL to access the live demo version of the application.
-> - **Test Features**: You can explore the core functionalities, such as [list key features].
-> - **Limited Scope?**: Please note that this demo version may have limited features or data for testing purposes.
+**Live application:** [Public URL]
 
-For detailed instructions on installation and running the application in a local environment, please refer to the documentation in the [link to Wiki].
+**What to try:** [One or two brief actions that show a working user flow.]
 
-## Installation
+**Demo access:** [Explain how to get the necessary limited access if sign-in is required; otherwise write “No account is required.” Do not publish passwords or tokens here.]
 
-> - Provide clear instructions on how to install and run the project or [link to Wiki].
-> - Include dependencies (if any) and installation commands.
-> - Consider offering pre-built binaries or Docker images (if applicable).
+**Current limitations:** [Briefly name limitations of the deployed version, or link to the single authoritative list of known issues in documentation.]
+
+The [deployment and running guide] describes the hosting setup actually used by this team. The team may use Render or another approved comparable platform.
+
+## Quick Start / Installation
+
+<!-- Required from Demo 1 onward. Replace the placeholders with commands another teammate has run from a clean clone. Keep detailed administration in the Wiki. -->
+
+**Prerequisites:** [Required runtime and version, package manager, database or external service if essential.]
+
+```bash
+git clone [repository URL]
+cd [repository directory]
+[install dependencies]
+[run the application]
+```
+
+**Local address:** [For example, the actual address printed by the application after it starts.]
+
+**Configuration:** [Name required environment variables or point to a safe `.env.example`; explain where values are obtained. Never put real credentials in this file, an example configuration file, screenshots, logs, or commits.]
+
+[Add a short verification step, such as which page opens or which command runs a basic check.] For detailed setup, see the [project documentation].
 
 ## Technologies
 
-> List the programming languages, frameworks, and libraries used in the project.
-> Briefly explain the role of each technology for context.
+List the few technologies and external services that define how your application works. For each, state its specific role and one project-related reason or constraint. Include a development or testing tool only when its role matters to understanding how this project was built or checked. Do not reproduce a dependency list, a language breakdown, or a list of IDEs and communication apps. Check the table against the actual repository and running application; document required versions and configuration in the installation guide.
+
+| Technology or tool | Role in this project | Reason for use or important constraint |
+| --- | --- | --- |
+| [Name] | [What it does in this application] | [Project-specific reason or constraint] |
+
+<details>
+<summary><strong>Example: Explaining key technology choices</strong></summary>
+
+**Example — Crisis Guard:**
+
+| Technology or tool | Role in this project | Reason for use or important constraint |
+| --- | --- | --- |
+| React | Renders the report form and incident map in the browser. | The map and submitted reports can update without reloading the entire page. |
+| PostgreSQL | Stores reports, locations, and their relationships. | Report records must remain connected to their authors and locations; schema changes require migrations. |
+| Map tile service | Provides the map displayed in the browser. | The map depends on an external service; report submission should still have a defined behavior if map tiles are unavailable. |
+
+**Analysis of the example:** Each row describes a role or consequence in this application. Package versions belong in the project's dependency files; setup-sensitive runtime versions and configuration belong in the installation guide. Explain consequential design trade-offs in the Wiki architecture page rather than repeating a full decision record here. Use only services that your team actually integrates.
+
+</details>
 
 ## Team Members
 
-List team members/links/main contributions.
+| Member | Main role or contribution |
+| ---  | --- |
+| [Name] | [Role or representative contribution] |
+| [Name] | [Role or representative contribution] |
 
-## Contributions (Optional)
-> Rules depend on the team’s organization and are often outlined in `CONTRIBUTING.md`.
+Roles may change during the project. The repository and the agreed task tracker provide supporting evidence of teamwork.
 
+## Contributing
 
+[In two or three sentences, describe how someone proposes a task or reports a defect, how a code change is reviewed, and where to find the current work tracker. If the team maintains `CONTRIBUTING.md`, link to it here instead of duplicating its rules. Do not create that file merely to fill this section.]
 
+## License  [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
 
-# 📝 Licence
-Važeča (1)
-[![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
+**Project license or reuse status:** [Name the license and link to the project's `LICENSE` file, or explicitly state that no public reuse license has been granted. Confirm the intended scope with the team; do not copy the documentation template's license statement as the license of your application.]
 
 This repository contains open educational resources and is licensed under the Creative Commons license, which allows you to download, share, and use the work as long as you attribute the author, do not use it for commercial purposes, and share it under the same conditions Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License HR.
 
-**Note**:  
-> All packages are distributed under their own licenses.  
-> All used materials (images, models, animations, etc.) are distributed under their own licenses.
+Third-party code, datasets, images, icons, and other assets retain their own licenses and attribution requirements. [Link to any additional credits where relevant.]
 
-> **Important Note for Students**: When contributing to this project or using open-source code, ensure that you respect the licensing terms of any third-party libraries or dependencies. All contributions to the project should be licensed under an open-source license, such as the one provided by GitHub or similar platforms. Please refer to the licensing details of the project repository for more information.
+## AI Usage
 
-Additionally, any used materials (images, models, animations, etc.) must be in compliance with their respective licenses.
+This project follows FER's [Policy on the Appropriate Use of Artificial Intelligence](https://www.fer.unizg.hr/_download/repository/Policy%20on%20the%20appropriate%20use%20of%20artificial%20intelligence%20at%20the%20faculty%20of%20electrical%20engineering%20and%20computing%5B1%5D.pdf).
 
-> ## AI Usage
+**Team statement:** [Say whether AI tools were used. If so, name the tools and their main purposes, and state how the team reviewed the resulting code or text and can explain its own contribution. If none were used, state that plainly. Do not paste private data, access credentials, or other people's protected material into AI tools.]
 
-> When AI technologies, models, or services were used in this project, it is essential to clearly state and reference them in the documentation. This includes any machine learning models, AI frameworks, or third-party services integrated into the application. Be transparent about the AI components, their functionality, sources, and ensure compliance with relevant usage and licensing terms.
-> 
-> Additionally, consider the ethical implications of using AI in your project, particularly in terms of user privacy, data security, and fairness. Ensure that the AI models or services respect user confidentiality and do not introduce bias or discrimination.
-> 
-> For example, if AI services such as natural language processing, image recognition, or recommendation algorithms were utilized, provide appropriate citations or links to the resources used, along with any relevant documentation or guidelines for their usage.
-> 
-> If you are using third-party AI models, libraries, or services, ensure proper credit is given, and comply with their licensing conditions. Always strive to integrate AI functionalities responsibly, aligning them with the project's overall ethical standards and ensuring that they contribute positively to the user experience and societal values.
+[If a more detailed AI usage record is required for this course project, link to its single authoritative documenattion location.]
 
-[![CC BY-NC-SA 4.0][cc-by-nc-sa-image]][cc-by-nc-sa]
+## Code of Conduct and Support [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
-[cc-by-nc-sa]: https://creativecommons.org/licenses/by-nc/4.0/deed.hr 
-[cc-by-nc-sa-image]: https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png
-[cc-by-nc-sa-shield]: https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg
-
-Orginal [![cc0-1.0][cc0-1.0-shield]][cc0-1.0]
->
->COPYING: All the content within this repository is dedicated to the public domain under the CC0 1.0 Universal (CC0 1.0) Public Domain Dedication.
->
-[![CC0-1.0][cc0-1.0-image]][cc0-1.0]
-
-[cc0-1.0]: https://creativecommons.org/licenses/by/1.0/deed.en
-[cc0-1.0-image]: https://licensebuttons.net/l/by/1.0/88x31.png
-[cc0-1.0-shield]: https://img.shields.io/badge/License-CC0--1.0-lightgrey.svg
-
-### Reference na licenciranje repozitorija
-
-# 📝 Code of Conduct [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
-As students, you are surely familiar with the minimum acceptable behavior defined in the **STUDENT CODE OF CONDUCT** of the Faculty of Electrical Engineering and Computing, University of Zagreb, as well as additional guidelines for teamwork in the Software Engineering course.
-
-We expect you to follow the **[IEEE Code of Ethics](https://www.ieee.org/about/corporate/governance/p7-8.html)**, which plays an important educational role in setting the highest standards of integrity, responsible behavior, and ethical conduct in professional activities. By doing so, the professional community of software engineers defines general principles that establish moral character, guide important business decisions, and set clear moral expectations for all members of the community.
-
-The Code of Conduct is a set of enforceable rules that serve to clearly communicate expectations and requirements for the community/team's work. It defines obligations, rights, unacceptable behaviors, and appropriate consequences (unlike the ethical code). In this repository, one of the widely accepted codes of conduct for working in open-source communities is provided.
+Team members are expected to follow **STUDENT CODE OF CONDUCT** of the Faculty of Electrical Engineering and Computing, University of Zagreb, , the course teamwork guidelines, and the [IEEE Code of Ethics](https://www.ieee.org/about/corporate/governance/p7-8.html). [Link to `CODE_OF_CONDUCT.md` if your repository uses one.]
 
 > ### Improve Team Functionality:
 > - Define how work will be distributed among team members.
@@ -111,10 +120,15 @@ The Code of Conduct is a set of enforceable rules that serve to clearly communic
 > - Don’t waste time on deciding how the group will resolve disputes—apply the standards!
 > - It is implicitly assumed that all team members will follow the code of conduct.
 > 
-> ## Issue Reporting
+> ### Issue Reporting
 > 
 > The worst thing that can happen is for someone to remain silent when there are problems. There are several things you can do to best resolve conflicts and issues:
 > 
-> - Contact me directly via [e-mail](mailto:vlado.sruk@fer.hr), and we will do everything we can to confidentially understand what steps we need to take to resolve the problem.
+> **Escalation:** Issues the team cannot resolve can be raised confidentially with the course assistant or directly ([vlado.sruk@fer.hr](mailto:vlado.sruk@fer.hr))
 > - Talk to your assistant, as they have the best insight into the team dynamics. Together, you’ll figure out how to resolve the conflict and how to avoid further impact on your work.
 > - If you feel comfortable, discuss the problem directly. Minor incidents should be resolved directly. Take time and privately speak with the affected team member and trust in their sincerity.
+
+---
+
+**Course documentation template:** Documentation structure adapted from the FER Software Engineering course template by [Vlado Sruk](https://www.fer.unizg.hr/en/vlado.sruk), licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). The application and its content were created by the student team named above.
+
