@@ -19,8 +19,8 @@ For a project on the Crisis Guard topic, a concise overview could identify citiz
 
 </details>
 
-**Application and basic setup:** [Repository README](../)  
-**Public application:** see [README – Deployment](../#deployment)
+**Application and basic setup:** [Repository README](../Readme.md#)  
+**Public application:** see [README – Deployment](../Readme.md#deployment)
 
 ## Team Members and Roles
 
