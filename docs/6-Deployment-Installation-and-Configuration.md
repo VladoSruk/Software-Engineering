@@ -1,6 +1,6 @@
 # 6. Deployment, Installation, and Configuration
 
-**Objective:** Show where the application runs, how its deployed parts communicate, and how a reader can install, configure, deploy, and maintain it. The [README](../) gives the public address and the shortest local Quick Start; this page adds the setup details needed to reproduce the application.
+**Objective:** Show where the application runs, how its deployed parts communicate, and how a reader can install, configure, deploy, and maintain it. The [README](../README.md) gives the public address and the shortest local Quick Start; this page adds the setup details needed to reproduce the application.
 
 The expandable Crisis Guard material is a **teaching example of a possible deployment**, not a description or a test result from the published student project. Replace its topology, settings, and checks with those of your application. Render is used in the example; document the platform your team actually uses.
 
@@ -19,37 +19,8 @@ Label the actual hosting nodes and important connections. Include a database or 
 
 **Example — Crisis Guard:** The proposed web client is built as a static site. A backend web service processes reports and runs the notification task in the **same deployed backend application**. PostgreSQL stores reports; a map tile provider serves maps to the browser; Firebase Cloud Messaging receives notification requests from the backend. The example assumes notifications belong to this particular project's scope.
 
-```plantuml
-@startuml
-title Crisis Guard — Public Deployment
-left to right direction
-
-node "Citizen device" as Device {
-  node "Browser" as Browser
-}
-
-cloud "Render" {
-  node "Static site" as Static {
-    artifact "Web client build" as Frontend
-  }
-  node "Backend web service" as Service {
-    artifact "Backend application\n(API + notification task)" as Backend
-  }
-  database "Managed PostgreSQL" as DB
-}
-
-cloud "External providers" {
-  node "Map tile service" as Maps
-  node "Firebase Cloud Messaging" as FCM
-}
-
-Browser --> Static : HTTPS / web assets
-Browser --> Service : HTTPS / report API
-Browser --> Maps : HTTPS / map tiles
-Service --> DB : database connection
-Service --> FCM : HTTPS / notification requests
-@enduml
-```
+![Crisis Guard system deployment diagram](./assets/diagrams/6-1-crisis-guard-DD.svg)  
+[PlantUML source](./puml/6-1-crisis-guard-DD.puml)
 
 **Analysis of the example:** The static site distributes client files, while the browser executes the client code. The backend's API and notification task remain inside one deployed service despite having separate responsibilities in the component diagram. The database connection comes from the backend, not directly from the browser. The map and notification services are outside the team's hosting environment. These boxes represent deployment locations, not a second inventory of backend modules or a promise of separate servers for each class. Omit FCM and its arrow if notifications are not implemented; include a sign-in provider only when that integration is part of the approved project and is actually deployed. A different host changes the deployment labels, not the purpose of the diagram.
 

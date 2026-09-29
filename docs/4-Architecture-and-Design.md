@@ -2,7 +2,7 @@
 
 **Objective:** Design and explain the application's boundary, main choices, parts, data, and important behavior. Start with an architecture that guides implementation; revise it when design decisions change. At the final review, the descriptions and diagrams should explain the application that was actually built.
 
-The page contains the **UML component, class, sequence, and state diagrams** and the data model. The use case diagram describes user goals; the deployment diagram shows where the finished application actually runs. Keep a readable image and versioned PlantUML source for each UML diagram, as described on [Home](./Home).
+The page contains the **UML component, class, sequence, and state diagrams** and the data model. The use case diagram describes user goals; the deployment diagram shows where the finished application actually runs. Keep a readable image and versioned PlantUML source for each UML diagram, as described on [Home](./Home.md).
 
 The expandable Crisis Guard examples illustrate a proposed design. Use your project's own decisions and models in the completed page.
 
@@ -26,7 +26,7 @@ The expandable Crisis Guard examples illustrate a proposed design. Use your proj
 Explain the main architectural choices without repeating the technologies list. If an important choice has an ADR, its ID in the table is enough.
 
 <details>
-<summary><strong>Explaining a choice without assuming microservices</strong></summary>
+<summary><strong>Explaining a choice </strong></summary>
 
 **Example — Crisis Guard:**
 
@@ -57,30 +57,8 @@ Start by drawing the boundary around the proposed system. Inside it, identify pa
 
 **Example — Crisis Guard:** The proposed architecture supports report submission, a map view, and notifications about confirmed reports.
 
-```plantuml
-@startuml
-left to right direction
-skinparam componentStyle rectangle
-rectangle "Crisis Guard system" {
-  component "Web client" as Web
-  rectangle "Backend application" {
-    component "Report API" as API
-    component "Report service" as Reports
-    component "Notification worker" as Notify
-  }
-  database "PostgreSQL" as DB
-}
-component "Map tile provider\n(external)" as Maps
-component "Firebase Cloud Messaging\n(external)" as FCM
-
-Web --> API : report requests / responses
-Web --> Maps : map tiles
-API --> Reports : submit and retrieve reports
-Reports --> DB : store and query reports
-Notify --> DB : find confirmed reports\nand recipients
-Notify --> FCM : send notification requests
-@enduml
-```
+![Crisis Guard system component diagram](./assets/diagrams/4-1-crisis-guard-system-CMP.svg)  
+[PlantUML source](./puml/4-1-crisis-guard-system-CMP.puml)
 
 | Part | Responsibility | Reason for this boundary |
 | --- | --- | --- |
@@ -109,30 +87,8 @@ Notify --> FCM : send notification requests
 
 **Example — Crisis Guard:** Ana submits flood report `R-104` using her citizen account. She selects a location on the map and records the severity as high. A citizen may submit several reports; each report belongs to one disaster category, such as *Flood*. The application stores the report and its coordinates. Map tiles come from an external provider and are not entities in the application's data model.
 
-```plantuml
-@startuml
-entity "Citizen" as Citizen {
-  * citizen_id : ID <<PK>>
-  --
-  display_name : text
-}
-entity "Disaster report" as Report {
-  * report_id : ID <<PK>>
-  --
-  severity : text
-  latitude : decimal
-  longitude : decimal
-  submitted_at : datetime
-}
-entity "Disaster category" as Category {
-  * category_id : ID <<PK>>
-  --
-  name : text
-}
-Citizen ||--o{ Report : submits
-Category ||--o{ Report : classifies
-@enduml
-```
+![Crisis Guard data ER diagram](./assets/diagrams/4-2-crisis-guard-data-ERD.svg)  
+[PlantUML source](./puml/4-2-crisis-guard-data-ERD.puml)
 
 **Analysis of the example:** `R-104` has one author and one category; Ana and the *Flood* category can each be linked to more reports. The diagram shows relationships without copying a database's columns or writing a second table description for every entity. If your application also accepts **anonymous** reports, represent that possibility in the relationship to `Citizen`. If categories are fixed values rather than stored records, do not invent a category table. Compare the final ER diagram with the persistence model and explain only differences that matter to understanding the project.
 
@@ -151,53 +107,8 @@ Category ||--o{ Report : classifies
 
 **Example — Crisis Guard:** A report owns the rules for changing its status. A workflow class coordinates submission and review, while a repository interface describes the persistence operations it needs. The diagram proposes these responsibilities before implementation.
 
-```plantuml
-@startuml
-class DisasterReport {
-  -id: UUID
-  -status: ReportStatus
-  -severity: Severity
-  +approve(): void
-  +reject(reason: String): void
-  +close(): void
-}
-class Location {
-  +latitude: Decimal
-  +longitude: Decimal
-}
-enum ReportStatus {
-  SUBMITTED
-  VISIBLE
-  REJECTED
-  CLOSED
-}
-enum Severity {
-  LOW
-  MEDIUM
-  HIGH
-}
-interface ReportRepository {
-  +findById(id: UUID): DisasterReport
-  +save(report: DisasterReport): void
-}
-class ReportWorkflow {
-  +submit(location: Location, severity: Severity): DisasterReport
-  +approve(reportId: UUID): void
-  +reject(reportId: UUID, reason: String): void
-  +close(reportId: UUID): void
-}
-DisasterReport *-- "1" Location : has
-ReportWorkflow --> DisasterReport : creates / changes
-ReportWorkflow --> ReportRepository : loads / saves
-
-note right of DisasterReport
-  approve(): SUBMITTED -> VISIBLE
-  reject(): SUBMITTED -> REJECTED
-  close(): VISIBLE -> CLOSED
-  Other transitions are rejected.
-end note
-@enduml
-```
+![Crisis Guard domain class diagram](./assets/diagrams/4-3-crisis-guard-domain-CD.svg)  
+[PlantUML source](./puml/4-3-crisis-guard-domain-CD.puml)
 
 **Analysis of the example:** `DisasterReport` owns its allowed state changes, so the workflow cannot silently approve a rejected report. `ReportWorkflow` coordinates an operation without owning the report's transition rules; `ReportRepository` defines the storage operations it needs. The `Location` composition and selected types show relationships useful to the design. The diagram intentionally omits database columns and unrelated classes: the ER model explains stored data, while this diagram assigns program responsibilities and operations. These classes are a design choice, not required layers for every team. Compare the finished implementation with the original design and revise the diagram where decisions changed; generating a diagram from code at the end cannot substitute for this initial modeling.
 
@@ -220,56 +131,8 @@ end note
 
 **Example — Crisis Guard:** A citizen submits a disaster report after choosing a location manually or requesting the device's position. The interaction also shows what happens when location permission is denied, report data is invalid, or storage fails.
 
-```plantuml
-@startuml
-title Crisis Guard — Disaster Report Submission and Location Validation
-actor Citizen
-participant "Web client" as Web
-participant "Browser location API" as Geo
-participant "Report API" as API
-participant "Report service" as Reports
-database "Report store" as Store
-
-Citizen -> Web : open report form
-alt citizen requests device location
-  Citizen -> Web : use current location
-  Web -> Geo : getCurrentPosition()
-  alt permission granted
-    Geo --> Web : coordinates
-    Web --> Citizen : show selected location
-  else permission denied
-    Geo --> Web : permission error
-    Web --> Citizen : offer manual selection
-    Citizen -> Web : select location on map
-  end
-else citizen chooses location manually
-  Citizen -> Web : select location on map
-end
-
-Citizen -> Web : enter type, severity, description; submit
-Web -> API : submitReport(details, coordinates)
-API -> Reports : validateAndSubmit(details, coordinates)
-
-alt input or location invalid
-  Reports --> API : validation errors
-  API --> Web : rejected (errors)
-  Web --> Citizen : show corrections; keep entered data
-else report valid
-  Reports -> Store : save(report)
-  alt save succeeds
-    Store --> Reports : report ID
-    Reports --> API : report confirmed
-    API --> Web : created (report ID)
-    Web --> Citizen : show confirmation
-  else storage fails
-    Store --> Reports : storage error
-    Reports --> API : submission failed
-    API --> Web : unavailable; no confirmation
-    Web --> Citizen : explain failure and retry option
-  end
-end
-@enduml
-```
+![Crisis Guard report submission sequence diagram](./assets/diagrams/4-4-crisis-guard-report-submission-SD.svg)  
+[PlantUML source](./puml/4-4-crisis-guard-report-submission-SD.puml)
 
 **Analysis of the example:** The two location paths and the validation and storage alternatives have different consequences for the user; compare them with the matching use case and its alternative flows. The browser location API is a browser capability; the web client, API, service, and store correspond to the component view. Select branches that help explain your project's scenario, and revise the final diagram to match the implemented interaction.
 
@@ -288,45 +151,8 @@ end
 
 **Example — Crisis Guard:** The crisis coordination mode changes as an disaster is assessed and resolved. At the same time, the user-visible availability of the application may change independently when the map provider or backend becomes unavailable.
 
-```plantuml
-@startuml
-title Crisis Guard — Operating Modes and Service Availability
-
-state "Crisis Guard operation" as Operation {
-  state "Crisis management mode" as Mode {
-    [*] --> Routine
-    state "Routine monitoring" as Routine
-    state "Heightened watch" as Watch
-    state "Active crisis" as Active
-    state "Follow-up" as FollowUp
-
-    Routine --> Watch : coordinator raises alert level
-    Watch --> Routine : threat ruled out
-    Routine --> Active : disaster verified / publish advisory
-    Watch --> Active : disaster verified / publish advisory
-    Active --> FollowUp : response ended
-    FollowUp --> Active : new verified disaster
-    FollowUp --> Routine : follow-up completed
-  }
-
-  --
-
-  state "Service availability" as Availability {
-    [*] --> Online
-    state "Online" as Online
-    state "Limited: map unavailable" as Limited
-    state "Unavailable: backend unreachable" as Unavailable
-
-    Online --> Limited : map provider fails
-    Limited --> Online : map provider recovers
-    Online --> Unavailable : backend becomes unreachable
-    Limited --> Unavailable : backend becomes unreachable
-    Unavailable --> Online : backend recovers [map available]
-    Unavailable --> Limited : backend recovers [map unavailable]
-  }
-}
-@enduml
-```
+![Crisis Guard report state machine diagram](./assets/diagrams/4-5-crisis-guard-report-SM.svg)  
+[PlantUML source](./puml/4-5-crisis-guard-report-SM.puml)
 
 **Analysis of the example:** The two regions describe independent aspects of the modeled system: its crisis coordination mode and observed service availability. They run in parallel; an active crisis may coincide with normal or limited service. The branches after backend recovery account for a map provider that may still be unavailable. State transitions have named triggers or guards rather than being a list of screens. Use this form only if your application actually maintains or reliably derives both kinds of state. A project whose meaningful lifecycle belongs to a report, reservation, or order should model that object instead; diagram complexity is not an assessment criterion. At the final review, check the state model against the behavior the running application supports.
 
@@ -418,8 +244,6 @@ Patterns such as Dependency Injection or Repository belong here only when the co
 | Risk | Consequence | Current treatment |
 | --- | --- | --- |
 |  |  |  |
-
-An empty category may be stated as “None significant identified at this scope”; do not invent entries to fill a table. Put an existing user-visible defect and its reproduction steps in [5. Testing](5.-Testing), and the final unimplemented scope in [7. Results and Future Work](7-Conclusion-and-Future-Work).
 
 <details>
 <summary><strong>Identifying a limitation without inventing production infrastructure</strong></summary>

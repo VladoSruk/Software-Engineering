@@ -6,8 +6,8 @@
 
 **Objective:** Show the system boundary, its relevant actors, and their main goals in **one readable UML use case diagram**. Add a focused second diagram only if the complete view cannot remain clear; a third requires a distinct project-specific reason.
 
-**Rendered use case diagram:** [Embed the diagram image here.]  
-**Versioned PlantUML source:** [Link to the matching `.puml` file or retain its source in the Wiki page.]
+**Rendered use case diagram:** ![Use case diagram](./assets/diagrams/3-1-crisis-guard-system-UC.svg)  
+**Versioned PlantUML source:** [`Source puml`](./puml/3-1-crisis-guard-system-UC.puml)
 
 **Consistency check:** Show the identified roles that **interact with the application**, not stakeholders who have no interaction. Each main user goal must have an associated actor; an included use case can be reached through another use case without its own direct actor association. Use `<<include>>` and `<<extend>>` only when the relationship expresses actual behavior.
 
@@ -16,24 +16,7 @@
 
 The diagram below illustrates a **course scenario** with a citizen, a visitor, and an organization that checks available resources. Only include the organization as an actor if the team's approved project actually lets it interact with the application. OAuth is outside this example because it is an implementation-specific sign-in choice and belongs in the requirements only if approved.
 
-```plantuml
-@startuml
-left to right direction
-actor Citizen
-actor Visitor
-actor "Disaster Manager" as Coordinator
-rectangle "Crisis Guard" {
-  usecase "Submit disaster report" as UC_Report
-  usecase "View reports on map" as UC_Map
-  usecase "View available resources" as UC_Resources
-  usecase "Receive nearby alert" as UC_Alert
-}
-Citizen --> UC_Report
-Citizen --> UC_Alert
-Visitor --> UC_Map
-Coordinator --> UC_Resources
-@enduml
-```
+[PlantUML source](./puml/3-1-crisis-guard-system-UC.puml) · [Rendered SVG](./assets/diagrams/3-1-crisis-guard-system-UC.svg)
 
 **Actor and goal selection:** The boundary identifies what the application offers, the actors have distinct goals, and no actor or use case claims that this student application dispatches emergency services. Compare the diagram with your approved functional requirements and actors. This PlantUML block is a teaching example, not the versioned source and rendered image of the team's own diagram.
 

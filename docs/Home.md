@@ -37,7 +37,7 @@ The maintained list of members, GitHub profiles, and their roles or principal co
 | [5. Testing](5-Testing.md) | Test approach, actual results, and known defects |
 | [6. Deployment, Installation, and Configuration](6-Deployment-Installation-and-Configuration.md) | Local installation, configuration, public deployment, and administration |
 | [7. Conclusion and Future Work](7-Conclusion-and-Future-Work.md) | Conclusion and Future Work |
-| [A. Overview of Group Activities](A-Overview-of-Group-Activities.md) | Report Detalis of Team Work |
+| [A. Overview of Group Activities](A-Overview-of-Group-Activities.md) | Team activities, contributions, and challenges. |
 
 ## Project Milestones
 
@@ -91,18 +91,18 @@ Short summary: [README – AI Usage](../#ai-usage). This section records which t
 
 ### Scope of AI Contribution
 
-| Page, file or artefact | Type of assistance | What the tool produced | What the team supplied and changed | Location |
+| Page, file or artifact | Type of assistance | What the tool produced | What the team supplied and changed | Location |
 | --- | --- | --- | --- | --- |
-| [e.g. 3. Use Cases, UC-002] | [Drafting / rewording / translation / diagram source / summarising] | [Short description] | [Input given to the tool; facts added, corrected or removed] | [Wiki page, `.puml` file, PR] |
+| [e.g. 3. Use Cases, UC-002] | [Drafting / rewording / translation / diagram source / summarizing] | [Short description] | [Input given to the tool; facts added, corrected or removed] | [Wiki page, `.puml` file, PR] |
 
-Pages and artefacts not listed above were written without generative AI assistance. [Optional: list any AI-assisted code or tests here as further rows.]
+Pages and artifacts not listed above were written without generative AI assistance. [Optional: list any AI-assisted code or tests here as further rows.]
 
 ### Verification of Generated Content
 
 | Check | How it was performed | Evidence |
 | --- | --- | --- |
 | Factual accuracy | [Each statement about features, behavior or architecture was compared with the running application and the code] | [Reviewer names; PR or issue links] |
-| No unimplemented claims | [Features, tests and results described in the text were confirmed to exist; planned work is labelled as planned] | [Comparison with Testing (5.4) and Conclusion (7.1)] |
+| No unimplemented claims | [Features, tests and results described in the text were confirmed to exist; planned work is labeled as planned] | [Comparison with Testing (5.4) and Conclusion (7.1)] |
 | Consistency with other pages | [Names, IDs and diagrams checked against Requirements, Use Cases, Architecture and Testing] | [Checklist or review note] |
 | Diagram sources | [Generated PlantUML was rendered, corrected and matches the implemented system] | [`.puml` file and rendered image] |
 | Confidential content | [How the team ensured no secrets, credentials or personal data entered prompts or the Wiki] | [Practice used] |
@@ -120,7 +120,7 @@ Pages and artefacts not listed above were written without generative AI assistan
 
 **Example — Crisis Guard:**
 
-| Page or artefact | Type of assistance | What the tool produced | What the team supplied and changed | Location |
+| Page or artifact | Type of assistance | What the tool produced | What the team supplied and changed | Location |
 | --- | --- | --- | --- | --- |
 | 3. Use Cases, UC-002 | Drafting | First version of the main and alternative flows | Team supplied the real form fields and removed a sign-in branch the application does not have | Example PR #31 |
 | Sequence diagram, report submission | Diagram source | PlantUML draft | Team corrected participant names to match the components and removed a notification step that is not implemented | `diagrams/report-submission.puml` (example) |
