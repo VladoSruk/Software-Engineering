@@ -9,14 +9,15 @@ message: >-
   and its content were created by the student team named above.
 
 
-title: "FER Software Engineering Project Documentation Template"
-type: manual
+title: "Software Engineering Project Documentation Template"
+type: software
 
 authors:
   - family-names: "Sruk"
     given-names: "Vlado"
-    affiliation: >-
-      University of Zagreb Faculty of Electrical Engineering and Computing
+    orcid: "https://orcid.org/0000-0003-0411-3398"
+    affiliation: "University of Zagreb, Faculty of Electrical Engineering and Computing"
+
 
 version: "2.0.0"
 date-released: "2026-09-29"
@@ -25,7 +26,6 @@ repository-code: "https://github.com/VladoSruk/Software-Engineering"
 url: "https://github.com/VladoSruk/Software-Engineering"
 
 license: "CC-BY-NC-SA-4.0"
-license-url: "https://creativecommons.org/licenses/by-nc-sa/4.0/"
 
 abstract: >-
   An open educational resource providing a standardized documentation
@@ -56,37 +56,38 @@ preferred-citation:
     - family-names: "Sruk"
       given-names: "Vlado"
 
-  title: "FER Software Engineering Project Documentation Template"
+  title: "Software Engineering Project Documentation Template"
 
   institution:
     name: >-
-      University of Zagreb Faculty of Electrical Engineering
+      University of Zagreb, Faculty of Electrical Engineering
       and Computing
 
+  publisher:
+    name: "University of Zagreb, Faculty of Electrical Engineering and Computing"
   year: 2026
 
-references:
-  - type: manual
+		   
+				
   
-    authors:
-      - family-names: "Sruk"
-        given-names: "Vlado"
+			
+							
+							
 
-    title: >-
-      FER Software Engineering Course Documentation Template
+			 
+															
 
-    institution:
-      name: >-
-        University of Zagreb Faculty of Electrical Engineering and Computing
+				
+			  
+																	   
 
-    location:
-      name: "Zagreb, Croatia"
+			 
+							 
 
-    year: 2026
+			  
 
-    notes: >-
-      Repository template designed to standardize project documentation,
-      repository structure, licensing information, deployment guidance,
-      AI usage disclosures, and teamwork reporting for student teams
-      participating in the Software Engineering course.
+			 
+																		
+																																	  
+													   
 
